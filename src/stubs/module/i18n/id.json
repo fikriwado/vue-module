@@ -1,3 +1,7 @@
 {
-    "title": "Selamat Datang __Module__"
+    "modules": {
+        "__module__": {
+            "title": "Selamat Datang __Module__"
+        }
+    }
 }
