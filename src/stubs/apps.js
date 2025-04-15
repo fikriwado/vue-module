@@ -32,13 +32,16 @@ function camelize(string) {
 function copyTemplate(src, dest, moduleName) {
   if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
 
+  const camelizeModuleName = camelize(moduleName);
   const entries = fs.readdirSync(src, { withFileTypes: true });
+
   for (const entry of entries) {
     const srcPath = path.join(src, entry.name);
     let destName = entry.name
       .replace(/__Module__/g, moduleName)
       .replace(/__module__/g, moduleName.toLowerCase())
-      .replace(/__MODULE__/g, moduleName.toUpperCase());
+      .replace(/__MODULE__/g, moduleName.toUpperCase())
+      .replace(/__module-kebab__/g, camelizeModuleName);
 
     const destPath = path.join(dest, destName);
 
@@ -49,7 +52,8 @@ function copyTemplate(src, dest, moduleName) {
       content = content
         .replace(/__Module__/g, moduleName)
         .replace(/__module__/g, moduleName.toLowerCase())
-        .replace(/__MODULE__/g, moduleName.toUpperCase());
+        .replace(/__MODULE__/g, moduleName.toUpperCase())
+        .replace(/__module-kebab__/g, camelizeModuleName);
       fs.writeFileSync(destPath, content);
     }
   }
