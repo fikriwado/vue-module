@@ -49,6 +49,4 @@ for (const config in configModules) {
   }
 }
 
-console.log(i18n);
-
 export { routes, i18n };
