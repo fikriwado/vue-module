@@ -1,5 +1,8 @@
-const Welcome = () => import("../../app/welcome/App.vue");
+/*
+    Example Routes
+*/
+const MasterData = () => import("./pages/MasterData.vue");
 
-const routes = [{ path: "/", component: Welcome }];
+const routes = [{ path: "/master-data", component: MasterData }];
 
 export default routes;

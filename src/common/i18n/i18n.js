@@ -1,5 +1,5 @@
 import { createI18n } from "vue-i18n";
-import { i18n as locales } from "./registerModules";
+import { i18n as locales } from "../loaders/modules";
 
 const i18n = createI18n({
   legacy: false,
