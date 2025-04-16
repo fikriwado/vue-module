@@ -8,4 +8,9 @@
     aperiam fugiat, suscipit quia architecto accusantium sapiente, labore
     officiis esse quaerat?
   </p>
+  <Button label="Submit" />
 </template>
+
+<script setup>
+import Button from "primevue/button";
+</script>
