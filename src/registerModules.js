@@ -10,7 +10,6 @@ for (const path in globalLocales) {
   const lang = path.split("/").pop().replace(".json", "");
   i18n[lang] = i18n[lang] || {};
   Object.assign(i18n[lang], globalLocales[path].default);
-  i18n[lang].modules = i18n[lang].modules || {};
 }
 
 for (const config in configModules) {
@@ -23,7 +22,8 @@ for (const config in configModules) {
   if (moduleConfig.i18n) {
     for (const path in i18nModules) {
       const lang = path.split("/").pop().replace(".json", "");
-      Object.assign(i18n[lang].modules, i18nModules[path].default.modules);
+      const moduleName = moduleConfig.name.replace("-", "");
+      Object.assign(i18n[lang], { [moduleName]: i18nModules[path].default });
     }
   }
 }

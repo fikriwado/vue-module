@@ -1,7 +1,3 @@
 {
-    "modules": {
-        "__module__": {
-            "title": "Welcome __Module__"
-        }
-    }
+    "title": "Welcome __Module__"
 }
