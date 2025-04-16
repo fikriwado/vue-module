@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
+import "./common/styles/styles.css";
 import router from "./common/routes/router";
 import i18n from "./common/i18n/i18n";
 
