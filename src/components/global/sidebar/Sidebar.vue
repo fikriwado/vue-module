@@ -52,11 +52,15 @@ const { isMobile } = useSidebar();
       <SidebarGroup>
         <SidebarGroupLabel>Application</SidebarGroupLabel>
         <SidebarGroupContent>
-          <SidebarMenu>
+          <SidebarMenu class="md:items-center md:gap-4">
             <SidebarMenuItem v-for="item in items" :key="item.title">
-              <SidebarMenuButton as-child :tooltip="item.title">
+              <SidebarMenuButton
+                as-child
+                :tooltip="item.title"
+                class="group-data-[collapsible=icon]:p-1.5!"
+              >
                 <a :href="item.url">
-                  <component :is="item.icon" />
+                  <component :is="item.icon" class="md:w-5! md:h-5!" />
                   <span>{{ item.title }}</span>
                 </a>
               </SidebarMenuButton>
