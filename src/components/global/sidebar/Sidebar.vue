@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-vue-next";
 import {
   Sidebar,
@@ -9,20 +9,12 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarHeader,
   SidebarMenuSub,
   SidebarMenuSubItem,
   SidebarMenuSubButton,
+  useSidebar,
 } from "@/components/ui/sidebar";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
-// Menu items.
 const items = [
   {
     title: "Home",
@@ -50,17 +42,19 @@ const items = [
     icon: Settings,
   },
 ];
+
+const { isMobile } = useSidebar();
 </script>
 
 <template>
   <Sidebar collapsible="icon">
-    <SidebarContent>
+    <SidebarContent :class="{ 'justify-center': !isMobile }">
       <SidebarGroup>
         <SidebarGroupLabel>Application</SidebarGroupLabel>
         <SidebarGroupContent>
           <SidebarMenu>
             <SidebarMenuItem v-for="item in items" :key="item.title">
-              <SidebarMenuButton asChild>
+              <SidebarMenuButton as-child :tooltip="item.title">
                 <a :href="item.url">
                   <component :is="item.icon" />
                   <span>{{ item.title }}</span>
